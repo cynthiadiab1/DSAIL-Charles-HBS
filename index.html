@@ -18,7 +18,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); height: 100vh; overflow: hidden; display: flex; font-size: 14px; line-height: 1.6; }
   body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.04; pointer-events: none; z-index: 9999; }
-
+ 
   /* SIDEBAR */
   #sidebar { width: 200px; min-width: 200px; background: var(--sidebar); display: flex; flex-direction: column; padding: 28px 20px; border-right: 1px solid var(--border); z-index: 10; }
   .sidebar-brand { font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: var(--text); margin-bottom: 36px; opacity: 0.85; }
@@ -29,13 +29,13 @@
   .nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text); opacity: 0; flex-shrink: 0; transition: opacity 0.15s; }
   .nav-item.active .nav-dot { opacity: 1; }
   .nav-icon { width: 14px; height: 14px; flex-shrink: 0; }
-
-
+ 
+ 
   /* MAIN */
   #main { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
   .screen { display: none; height: 100%; overflow-y: auto; flex-direction: column; }
   .screen.active { display: flex; flex-direction: column; }
-
+ 
   /* PRIORITIES */
   #screen-priorities { padding: 40px 48px; }
   .priorities-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
@@ -88,7 +88,7 @@
   .confirm-btn:disabled { opacity: 0.35; cursor: not-allowed; }
   .confirm-btn:not(:disabled):hover { opacity: 0.88; }
   .confirm-btn:not(:disabled):active { transform: scale(0.99); }
-
+ 
   /* MY WEEK */
   #screen-week { padding: 0; overflow: hidden; }
   .week-header { padding: 20px 32px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); flex-shrink: 0; }
@@ -114,7 +114,7 @@
   @keyframes scaleIn { from { transform: scale(0.9); opacity: 0.5; } to { transform: scale(1); opacity: 1; } }
   .event-name { font-size: 11px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; position: relative; }
   .event-time-label { font-size: 10px; opacity: 0.72; position: absolute; top: 16px; left: 7px; right: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
+ 
   /* POPUP */
   .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(26,26,26,0.35); z-index: 100; backdrop-filter: blur(2px); align-items: center; justify-content: center; }
   .popup-overlay.open { display: flex; }
@@ -139,7 +139,7 @@
   .verdict-reason { font-size: 13px; font-style: italic; color: var(--text); line-height: 1.5; }
   .popup-ask-btn { width: 100%; padding: 11px 16px; background: transparent; border: 1px solid var(--text); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--text); cursor: pointer; transition: all 0.15s; }
   .popup-ask-btn:hover { background: var(--text); color: white; }
-
+ 
   /* CHAT */
   #screen-chat { flex-direction: column; height: 100%; overflow: hidden; }
   .chat-left { width: 55%; display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0; border-right: 1px solid var(--border); }
@@ -228,7 +228,7 @@
 </style>
 </head>
 <body>
-
+ 
 <nav id="sidebar">
   <div class="sidebar-brand">Charles,<br>your HBS assistant</div>
   <div class="nav-items">
@@ -248,11 +248,11 @@
       ask charles
     </div>
   </div>
-
+ 
 </nav>
-
+ 
 <div id="main">
-
+ 
   <!-- SCREEN 1: PRIORITIES -->
   <div id="screen-priorities" class="screen active">
     <div class="priorities-header">
@@ -261,7 +261,7 @@
         <h1 class="screen-title">What matters most this semester?</h1>
         <p class="screen-sub">Distribute 100 points — click any card to add your personal goal.</p>
       </div>
-
+ 
     </div>
     <div class="priorities-layout">
       <div class="left-col">
@@ -299,7 +299,7 @@
       <button class="confirm-btn" id="confirm-btn" disabled onclick="confirmPriorities()"><span>Set my priorities</span><span>→</span></button>
     </div>
   </div>
-
+ 
   <!-- SCREEN 2: MY WEEK -->
   <div id="screen-week" class="screen">
     <div class="week-header">
@@ -335,7 +335,7 @@
       <div class="cal-body" id="cal-body"></div>
     </div>
   </div>
-
+ 
   <!-- SCREEN 3: CHAT -->
   <div id="screen-chat" class="screen">
     <!-- Full-width Ask Charles header spanning both panels -->
@@ -372,7 +372,7 @@
       </div>
     </div>
   </div>
-
+ 
 <!-- POPUP -->
 <div class="popup-overlay" id="popup-overlay" onclick="closePopupOverlay(event)">
   <div class="popup-card">
@@ -387,7 +387,7 @@
     <button class="popup-ask-btn" id="popup-ask-btn">Ask Charles about this →</button>
   </div>
 </div>
-
+ 
 <script>
 // ─── CONSTANTS ────────────────────────────────────────────
 const CAT_ICONS = {
@@ -409,24 +409,24 @@ const TODAY  = 5; // Sat Apr 12
 const HS     = 6;  // hours start: 6am
 const HC     = 18;  // hours count: 6am to midnight
 var   SH     = 36;  // slot height px — recalculated dynamically
-
+ 
 // Category colours — background tint, left-border accent, and dark readable text
 const C_BG   = { academics:'rgba(61,139,110,0.13)',  career:'rgba(123,111,212,0.13)', social:'rgba(201,107,138,0.13)', personal:'rgba(200,135,74,0.13)',  nonneg:'rgba(160,152,128,0.13)' };
 const C_ACC  = { academics:'#3D8B6E', career:'#7B6FD4', social:'#C96B8A', personal:'#C8874A', nonneg:'#A09880' };
 const C_TEXT = { academics:'#0E4A30', career:'#291880', social:'#661236', personal:'#572405', nonneg:'#373028' };
-
+ 
 // ─── STATE ────────────────────────────────────────────────
 var state = {
   pts:       { academics:0, career:0, social:0, personal:0 },
   goals:     { academics:'', career:'', social:'', personal:'' },
   confirmed: false,
-  openCard:  null,
+  openCards: new Set(),
   touched:   new Set(),
   events:    [],
   history:   [],
   chipsOn:   true,
 };
-
+ 
 // ─── CALENDAR DATA ────────────────────────────────────────
 var BASE = [
   // MON Apr 7 — classes + case prep + gym
@@ -435,41 +435,41 @@ var BASE = [
   { id:'e3',  title:'Case Prep – FIN2',           day:0, start:14,   dur:2,   cat:'academics',loc:'Baker Library',  desc:'Preparing Tuesday FIN2 cold call with study group.' },
   { id:'e4',  title:'Gym',                        day:0, start:17,   dur:1,   cat:'personal', loc:'MAC',            desc:'Weekly strength session.' },
   { id:'e5',  title:'Section Dinner – G',         day:0, start:19.5, dur:2,   cat:'social',   loc:'Spangler Hall',  desc:'Monthly section dinner. Good for section bonding.' },
-
+ 
   // TUE Apr 8 — classes + BCG + study group
   { id:'e6',  title:'FIN2 – Finance',             day:1, start:8.5,  dur:1.5, cat:'nonneg',   loc:'Aldrich 108',    desc:'Non-negotiable class block.',                          nonneg:true },
   { id:'e7',  title:'BGIE – Intl Economy',        day:1, start:10.5, dur:1.5, cat:'nonneg',   loc:'Aldrich 108',    desc:'Non-negotiable class block.',                          nonneg:true },
   { id:'e8',  title:'BCG Coffee Chat',            day:1, start:16,   dur:1,   cat:'career',   loc:'Aldrich 112',    desc:'Informal first-round chat with BCG recruiter. High priority — keep this.' },
   { id:'e9',  title:'BGIE Study Group',           day:1, start:19,   dur:1.5, cat:'academics',loc:'Spangler 206',   desc:'Weekly BGIE case prep with section group.' },
-
+ 
   // WED Apr 9 — classes + McKinsey info session + wine night
   { id:'e10', title:'TEM – Tech & Ops',           day:2, start:8.5,  dur:1.5, cat:'nonneg',   loc:'Aldrich 108',    desc:'Non-negotiable class block.',                          nonneg:true },
   { id:'e11', title:'LCA – Leadership',           day:2, start:10.5, dur:1.5, cat:'nonneg',   loc:'Aldrich 108',    desc:'Non-negotiable class block.',                          nonneg:true },
   { id:'e12', title:'McKinsey Info Session',      day:2, start:17,   dur:1.5, cat:'career',   loc:'Spangler Hall',  desc:'Open recruiting info session for all MBAs. McKinsey presents on consulting career paths.' },
   { id:'e13', title:'Section Wine Night',         day:2, start:20,   dur:2,   cat:'social',   loc:'Spangler Patio', desc:'Informal section social. BYOB, outdoor. Third social event this week.' },
-
+ 
   // THU Apr 10 — classes + CAP + morning run
   { id:'e14', title:'DSAIL – AI for Leaders',     day:3, start:8.5,  dur:1.5, cat:'nonneg',   loc:'Aldrich 108',    desc:'Non-negotiable class block.',                          nonneg:true },
   { id:'e15', title:'CAP Field Project',          day:3, start:13,   dur:2,   cat:'nonneg',   loc:'Rock Center 306',desc:'CAP team session — deliverable due next week.',         nonneg:true },
   { id:'e16', title:'Morning Run',                day:3, start:6.5,  dur:1,   cat:'personal', loc:'Charles River',  desc:'Weekly long run. Good for clearing the head before a heavy day.' },
   { id:'e17', title:'Bain Networking Dinner',     day:3, start:19,   dur:2.5, cat:'career',   loc:'Top of the Hub', desc:'Bain & Company recruiter dinner. Small group, high signal event for consulting recruiting.' },
-
+ 
   // FRI Apr 11 — classes + case prep + section party
   { id:'e18', title:'FIN2 – Finance',             day:4, start:8.5,  dur:1.5, cat:'nonneg',   loc:'Aldrich 108',    desc:'Non-negotiable class block.',                          nonneg:true },
   { id:'e19', title:'LCA – Leadership',           day:4, start:10.5, dur:1.5, cat:'nonneg',   loc:'Aldrich 108',    desc:'Non-negotiable class block.',                          nonneg:true },
   { id:'e20', title:'Case Prep – DSAIL',          day:4, start:14,   dur:1.5, cat:'academics',loc:'Baker Library',  desc:'DSAIL problem set and prep — due Monday.' },
   { id:'e21', title:'Section Party',             day:4, start:21,   dur:3,   cat:'social',   loc:'Off-campus',     desc:'End-of-week section social. Fourth social event this week — a lot.' },
-
+ 
   // SAT Apr 12 — free morning + problem set
   { id:'e22', title:'Morning Run',                day:5, start:8,    dur:1,   cat:'personal', loc:'Charles River',  desc:'Saturday easy run.' },
   { id:'e23', title:'DSAIL Problem Set',          day:5, start:13,   dur:3,   cat:'academics',loc:'Home',           desc:'DSAIL problem set due Monday. Block protected.' },
-
+ 
   // SUN Apr 13 — LCA prep + recovery
   { id:'e24', title:'Case Prep – LCA',            day:6, start:15,   dur:2,   cat:'academics',loc:'Baker Library',  desc:'Monday LCA cold call prep.' },
   { id:'e25', title:'Gym',                        day:6, start:10,   dur:1,   cat:'personal', loc:'MAC',            desc:'Sunday strength session.' },
 ];
 state.events = JSON.parse(JSON.stringify(BASE));
-
+ 
 // ─── NAVIGATION ───────────────────────────────────────────
 function navigate(screen) {
   document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
@@ -479,7 +479,7 @@ function navigate(screen) {
   if (screen === 'week') renderCal();
   if (screen === 'chat') { requestAnimationFrame(function(){ renderMiniCal(); }); var cd=document.getElementById('chat-date'); if(cd) cd.textContent='Sat, Apr 12, 2026'; }
 }
-
+ 
 // ─── PRIORITIES ───────────────────────────────────────────
 function buildCards() {
   var c = document.getElementById('cat-cards');
@@ -508,22 +508,19 @@ function buildCards() {
     c.appendChild(el);
   });
 }
-
+ 
 function toggleCard(key) {
   if (state.confirmed) return;
-  if (state.openCard === key) {
-    document.getElementById('body-' + key).classList.remove('open');
-    state.openCard = null;
+  var body = document.getElementById('body-' + key);
+  if (state.openCards.has(key)) {
+    body.classList.remove('open');
+    state.openCards.delete(key);
   } else {
-    if (state.openCard) document.getElementById('body-' + state.openCard).classList.remove('open');
-    document.getElementById('body-' + key).classList.add('open');
-    state.openCard = key;
-    var cols = { academics:'#3D8B6E', career:'#7B6FD4', social:'#C96B8A', personal:'#C8874A' };
-    var svg = document.querySelector('#priorities-doodle svg');
-    if (svg) svg.style.stroke = cols[key] || '#3D8B6E';
+    body.classList.add('open');
+    state.openCards.add(key);
   }
 }
-
+ 
 function adj(e, key, d) {
   e.stopPropagation();
   if (state.confirmed) return;
@@ -537,10 +534,10 @@ function adj(e, key, d) {
   state.touched.add(key);
   refreshPts();
 }
-
+ 
 function goalInput(key, val) { state.goals[key] = val; state.touched.add(key); }
 function sumPts() { return CATS.reduce(function(a, c){ return a + state.pts[c.key]; }, 0); }
-
+ 
 function refreshPts() {
   var total = sumPts();
   CATS.forEach(function(cat) {
@@ -557,7 +554,7 @@ function refreshPts() {
   drawPie();
   scheduleRec();
 }
-
+ 
 function drawPie() {
   var vals = [state.pts.academics, state.pts.career, state.pts.social, state.pts.personal];
   var cols = [C_ACC.academics, C_ACC.career, C_ACC.social, C_ACC.personal];
@@ -580,13 +577,13 @@ function drawPie() {
   hole.setAttribute('r','32'); hole.setAttribute('fill','#FDFAF5');
   g.appendChild(hole);
 }
-
+ 
 var _recTimer = null;
 function scheduleRec() {
   clearTimeout(_recTimer);
   _recTimer = setTimeout(function(){ checkRec(); }, 700);
 }
-
+ 
 var REC_COLORS = {
   academics: { bg:'rgba(61,139,110,0.10)',  border:'#3D8B6E', text:'#0E4A30' },
   career:    { bg:'rgba(123,111,212,0.10)', border:'#7B6FD4', text:'#291880' },
@@ -594,7 +591,7 @@ var REC_COLORS = {
   personal:  { bg:'rgba(200,135,74,0.10)',  border:'#C8874A', text:'#572405' },
 };
 var REC_LABELS = { academics:'Academics', career:'Career', social:'Social Life', personal:'Personal' };
-
+ 
 function renderBubbles(msgs) {
   var container = document.getElementById('rec-bubbles');
   // Remove any existing AI bubbles (keep loading ones)
@@ -611,7 +608,7 @@ function renderBubbles(msgs) {
     container.appendChild(div);
   });
 }
-
+ 
 function checkRec() {
   var p = state.pts, g = state.goals, t = state.touched;
   var msgs = [];
@@ -619,7 +616,7 @@ function checkRec() {
   var gc = (g.career||'').toLowerCase();
   var gs = (g.social||'').toLowerCase();
   var gp = (g.personal||'').toLowerCase();
-
+ 
   // ACADEMICS — only if touched
   if (t.has('academics')) {
     if ((ga.includes('baker')||ga.includes('distinction')||ga.includes('top')||ga.includes('honors')) && p.academics < 35)
@@ -627,7 +624,7 @@ function checkRec() {
     else if (p.academics < 25)
       msgs.push({ cat:'academics', text:"Academics at HBS are intense — even if it's not your top priority, I'd recommend protecting at least 25% for coursework outside of class." });
   }
-
+ 
   // CAREER — only if touched
   if (t.has('career')) {
     if ((gc.includes('bcg')||gc.includes('mckinsey')||gc.includes('bain')||gc.includes('consulting')||gc.includes('mbb')) && p.career < 35)
@@ -635,26 +632,26 @@ function checkRec() {
     else if ((gc.includes('banking')||gc.includes('goldman')||gc.includes('finance')||gc.includes('private equity')||gc.includes('pe')) && p.career < 30)
       msgs.push({ cat:'career', text:"Finance and banking recruiting is time-intensive. Consider at least 30% for Career to stay competitive." });
   }
-
+ 
   // SOCIAL — only if touched
   if (t.has('social')) {
     if (p.social > 40)
       msgs.push({ cat:'social', text:"Social Life at "+p.social+"% is high — that's a lot of discretionary time. Make sure it leaves meaningful room for your other priorities." });
   }
-
+ 
   // PERSONAL — only if touched
   if (t.has('personal')) {
     if ((gp.includes('gym')||gp.includes('run')||gp.includes('health')||gp.includes('exercise')||gp.includes('fitness')||gp.includes('sleep')) && p.personal < 15)
       msgs.push({ cat:'personal', text:"You mentioned health goals — I'd protect at least 15% for Personal so those habits survive a busy semester." });
   }
-
+ 
   // COMBINED — only if both touched
   if (t.has('career') && t.has('academics') && (p.career + p.academics) > 85)
     msgs.push({ cat:'personal', text:"Career + Academics is "+(p.career+p.academics)+"% — almost everything. Burnout is real at HBS. Try to leave at least 15% for recovery and personal time." });
-
+ 
   renderBubbles(msgs);
 }
-
+ 
 function showBannerResult() {
   var hasBubbles = Array.from(document.getElementById('rec-bubbles').querySelectorAll('.rec-bubble')).length > 0;
   var msgEl = document.getElementById('locked-msg');
@@ -674,25 +671,25 @@ function showBannerResult() {
   }
   banner.classList.add('visible');
 }
-
+ 
 function confirmPriorities() {
   // Mark all categories as touched for the final check
   state.touched.add('academics'); state.touched.add('career');
   state.touched.add('social');    state.touched.add('personal');
-
+ 
   state.confirmed = true;
   var btn = document.getElementById('confirm-btn');
   btn.disabled = true;
   btn.innerHTML = '<span>✓ Priorities saved</span><span>→</span>';
   document.querySelectorAll('.stepper-btn').forEach(function(b){ b.disabled=true; });
   document.querySelectorAll('.cat-textarea').forEach(function(t){ t.disabled=true; });
-
+ 
   // Run rule-based check across all categories
   document.getElementById('rec-bubbles').innerHTML = '';
   checkRec();
   showBannerResult();
 }
-
+ 
 function editPriorities() {
   state.confirmed = false;
   var btn = document.getElementById('confirm-btn');
@@ -707,7 +704,7 @@ function editPriorities() {
   document.querySelectorAll('.stepper-btn').forEach(function(b){ b.disabled=false; });
   document.querySelectorAll('.cat-textarea').forEach(function(t){ t.disabled=false; });
 }
-
+ 
 // ─── CALENDAR ─────────────────────────────────────────────
 function calcSH() {
   var calBody = document.getElementById('cal-body');
@@ -717,7 +714,7 @@ function calcSH() {
   SH = Math.max(18, Math.floor(bodyH / HC));
   document.documentElement.style.setProperty('--sh', SH + 'px');
 }
-
+ 
 function renderCal() {
   // Build header
   var hEl = document.getElementById('cal-header');
@@ -734,7 +731,7 @@ function renderCal() {
     buildCalBody();
   });
 }
-
+ 
 function buildCalBody() {
   var bEl = document.getElementById('cal-body');
   bEl.innerHTML = '';
@@ -759,7 +756,7 @@ function buildCalBody() {
     bEl.appendChild(col);
   }
 }
-
+ 
 function evBlock(ev, mini) {
   var b = document.createElement('div');
   b.className = mini ? 'mini-event-block' : 'event-block';
@@ -779,14 +776,14 @@ function evBlock(ev, mini) {
   }
   return b;
 }
-
+ 
 function ft(t) {
   var h=Math.floor(t), m=Math.round((t%1)*60);
   var ap = h >= 12 ? 'pm' : 'am';
   var hh = h === 0 ? 12 : h > 12 ? h - 12 : h;
   return m ? hh+':'+String(m).padStart(2,'0')+ap : hh+ap;
 }
-
+ 
 // ─── POPUP ────────────────────────────────────────────────
 function openPopup(ev) {
   document.getElementById('popup-name').textContent = ev.title;
@@ -818,11 +815,11 @@ function openPopup(ev) {
   }
   fetchVerdict(ev);
 }
-
+ 
 async function fetchVerdict(ev) {
   var prompt = 'Event: "'+ev.title+'" on '+DAYS[ev.day]+', '+ft(ev.start)+'–'+ft(ev.start+ev.dur)+' ('+ev.dur+'h), category: '+ev.cat+'. '+(ev.desc||'')+'\n\nGive a verdict and ONE sentence of reasoning.\nFormat:\nVERDICT: [Attend/Optional/Skip]\nReason: [one sentence]';
   try {
-    var r = await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,system:sysPrompt(),messages:[{role:'user',content:prompt}]})});
+    var r = await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,system:sysPrompt(),messages:[{role:'user',content:prompt}]})});
     var d = await r.json();
     var txt = (d.content||[]).map(function(c){return c.text||'';}).join('');
     showVerdict(txt);
@@ -833,7 +830,7 @@ async function fetchVerdict(ev) {
     document.getElementById('verdict-reason').textContent='Open Ask Charles for a full recommendation.';
   }
 }
-
+ 
 function showVerdict(txt) {
   var v='optional', lo=txt.toLowerCase();
   if (lo.includes('verdict: attend')) v='attend';
@@ -847,11 +844,11 @@ function showVerdict(txt) {
   document.getElementById('verdict-badge').innerHTML='<span class="verdict-badge '+v+'">'+icons[v]+' '+labs[v]+'</span>';
   document.getElementById('verdict-reason').textContent=reason;
 }
-
+ 
 function closePopup() { document.getElementById('popup-overlay').classList.remove('open'); }
 function closePopupOverlay(e) { if(e.target===document.getElementById('popup-overlay')) closePopup(); }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closePopup(); });
-
+ 
 // ─── MINI CAL ─────────────────────────────────────────────
 function renderMiniCal() {
   // Compute mini slot height dynamically based on available space
@@ -883,7 +880,7 @@ function renderMiniCal() {
     bEl.appendChild(col);
   }
 }
-
+ 
 // ─── CHAT ─────────────────────────────────────────────────
 function sysPrompt() {
   var p=state.pts, g=state.goals;
@@ -926,9 +923,9 @@ function sysPrompt() {
   sys += 'END_SUMMARY\n\n';
   sys += '3. FOR OTHER QUESTIONS: Answer directly in 3-5 sentences. Specific, direct, no hedging.';
   return sys;
-
+ 
 }
-
+ 
 async function sendMessage() {
   var inp=document.getElementById('chat-input'), txt=inp.value.trim();
   if(!txt) return;
@@ -941,7 +938,7 @@ async function sendMessage() {
   document.getElementById('chat-messages').appendChild(tEl); scrollChat();
   try {
     var msgs=state.history.slice(-12).map(function(m){return{role:m.role,content:m.content};});
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:sysPrompt(),messages:msgs})});
+    var r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:sysPrompt(),messages:msgs})});
     var d=await r.json();
     var ai=(d.content||[]).map(function(c){return c.text||'';}).join('')||"I couldn't process that.";
     document.getElementById('typing').remove();
@@ -952,9 +949,9 @@ async function sendMessage() {
     addMsg('ai',"I had trouble connecting. Please try again.");
   }
 }
-
+ 
 function sendChip(t){ document.getElementById('chat-input').value=t; sendMessage(); }
-
+ 
 function renderAI(txt) {
   if(txt.includes('WEEK_SUMMARY')){ renderWeekSummary(txt); scrollChat(); return; }
   var vm=txt.match(/VERDICT:\s*(attend|optional|skip)/i);
@@ -996,13 +993,13 @@ function renderAI(txt) {
   } else { addMsg('ai',txt); }
   scrollChat();
 }
-
+ 
 function renderWeekSummary(txt) {
   function extract(key) {
     var re = new RegExp(key + ':\\s*([\\s\\S]+?)(?=\\n[A-Z_]+:|END_SUMMARY|$)');
     var m = txt.match(re); return m ? m[1].trim() : '';
   }
-
+ 
   var acadSt = extract('ACADEMICS_STATUS');
   var acad   = extract('ACADEMICS');
   var carSt  = extract('CAREER_STATUS');
@@ -1014,7 +1011,7 @@ function renderWeekSummary(txt) {
   var busDay = extract('BUSIEST_DAY');
   var bigGap = extract('BIGGEST_GAP');
   var rec    = extract('RECOMMENDATION');
-
+ 
   function statusPill(label) {
     if (!label) return '';
     var lo = label.toLowerCase();
@@ -1024,14 +1021,14 @@ function renderWeekSummary(txt) {
     else                                                    { bg='rgba(200,135,74,0.13)';   col='#5C2A06'; }
     return '<span style="display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;background:'+bg+';color:'+col+';">'+H(label)+'</span>';
   }
-
+ 
   var cats = [
     { label:'Academics',  icon:CAT_ICONS.academics, color:'#3D8B6E', text:acad, st:acadSt },
     { label:'Career',     icon:CAT_ICONS.career,    color:'#7B6FD4', text:car,  st:carSt  },
     { label:'Social Life',icon:CAT_ICONS.social,    color:'#C96B8A', text:soc,  st:socSt  },
     { label:'Personal',   icon:CAT_ICONS.personal,  color:'#C8874A', text:pers, st:persSt },
   ];
-
+ 
   var rows = cats.map(function(c) {
     if (!c.text) return '';
     return '<div style="padding:10px 14px;border-radius:8px;background:'+c.color+'12;border-left:3px solid '+c.color+';margin-bottom:7px;">'+
@@ -1042,7 +1039,7 @@ function renderWeekSummary(txt) {
       '<div style="font-size:13px;color:var(--text);line-height:1.5;">'+H(c.text)+'</div>'+
     '</div>';
   }).join('');
-
+ 
   // Footer lines
   var footer = '';
   if (busDay || bigGap || rec) {
@@ -1052,7 +1049,7 @@ function renderWeekSummary(txt) {
     if (rec)    footer += '<div style="font-size:13px;color:var(--text);line-height:1.5;font-style:italic;"><span style="color:var(--muted);font-weight:600;margin-right:4px;">•</span>'+H(rec)+'</div>';
     footer += '</div>';
   }
-
+ 
   var html = '<div class="msg-avatar">Ch</div><div class="msg-bubble" style="max-width:96%;">'+
     rows + footer +
   '</div>';
@@ -1060,10 +1057,10 @@ function renderWeekSummary(txt) {
   w.innerHTML = html;
   document.getElementById('chat-messages').appendChild(w);
 }
-
+ 
 // pending modal state
 var _modal = {};
-
+ 
 function openAddModal(cat, dt, evTitle, evDur, mid, skipOnCancel) {
   // Parse day/start from dt string
   var di=0, sh=-1; // sh=-1 means unknown
@@ -1073,7 +1070,7 @@ function openAddModal(cat, dt, evTitle, evDur, mid, skipOnCancel) {
   if(tm2){sh=parseInt(tm2[1]);if(tm2[3]&&tm2[3].toLowerCase()==='pm'&&sh<12)sh+=12;if(tm2[3]&&tm2[3].toLowerCase()==='am'&&sh===12)sh=0;}
   var timeUnknown = sh < 0;
   _modal = { cat:cat, dayIdx:di, startHr:timeUnknown?12:sh, dtStr:dtStr, mid:mid, skipOnCancel:skipOnCancel||false };
-
+ 
   // Pre-fill event name
   document.getElementById('modal-name').value = evTitle || '';
   // Pre-fill day & time field
@@ -1100,7 +1097,7 @@ function openAddModal(cat, dt, evTitle, evDur, mid, skipOnCancel) {
   durSel.value = best;
   document.getElementById('add-modal-overlay').classList.add('open');
 }
-
+ 
 function closeAddModal() {
   document.getElementById('add-modal-overlay').classList.remove('open');
   if (_modal.skipOnCancel) {
@@ -1109,7 +1106,7 @@ function closeAddModal() {
   }
   _modal = {};
 }
-
+ 
 function confirmAddModal() {
   var title = document.getElementById('modal-name').value.trim() || 'New Event';
   var cat   = document.getElementById('modal-cat').value;
@@ -1136,7 +1133,7 @@ function confirmAddModal() {
   scrollChat();
   _modal = {};
 }
-
+ 
 function doApprove(mid,v,cat,dt,evTitle,evDur){
   var card=document.getElementById(mid);
   if(v==='skip'){
@@ -1155,7 +1152,7 @@ function doDismiss(mid,v,cat,dt,evTitle,evDur){
     '</div>';
 }
 function dontAdd(mid){var c=document.getElementById(mid);if(c)c.style.display='none';addMsg('ai',"No problem — not added.");scrollChat();}
-
+ 
 function addMsg(type,txt){
   var msgs=document.getElementById('chat-messages'), w=document.createElement('div');
   if(type==='user'){w.className='msg-wrap user';w.innerHTML='<div class="msg-bubble">'+H(txt)+'</div>';}
@@ -1167,7 +1164,7 @@ function handleInputKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();s
 function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
 function H(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function EA(s){return(s||'').replace(/'/g,"\\'");}
-
+ 
 // ─── INIT ─────────────────────────────────────────────────
 buildCards();
 refreshPts();
@@ -1214,6 +1211,7 @@ refreshPts();
     </div>
   </div>
 </div>
-
+ 
 </body>
 </html>
+ 
